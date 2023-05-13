@@ -26,7 +26,6 @@ const io = new Server(server);
 
 io.on("connection", (socket) => {
   socket.emit("connected", { message: "putos franceses" });
-  console.log(socket);
   console.log("a user connected");
 });
 
