@@ -1,12 +1,13 @@
-import RankingService from "../api/services/ranking.service";
-import Ranking from "../api/models/ranking.model";
-import { IRanking, IUserRanking } from "../api/models/interfaces/IRanking";
-import { IUser } from "../api/models/interfaces/IUser";
+import RankingService from "../../api/services/ranking.service";
+import Ranking from "../../api/models/ranking.model";
+import { IRanking, IUserRanking } from "../../api/models/interfaces/IRanking";
+import { IUser } from "../../api/models/interfaces/IUser";
 
 let rankingWithLessThan10Users = {} as IRanking;
 let rankingWith10Users = {} as IRanking;
 
 beforeEach(() => {
+  jest.clearAllMocks();
   rankingWithLessThan10Users = {
     id: "1",
     rankingOfUsers: [
@@ -68,6 +69,7 @@ describe("Given a ranking service", () => {
       Ranking.findOne = jest
         .fn()
         .mockReturnValue({ ...rankingWith10Users, save: jest.fn() });
+      Ranking.create = jest.fn().mockReturnValue(rankingWith10Users);
       const ranking = await addPunctuationToRanking(
         { id: "1", name: "dani" } as IUser,
         1
@@ -81,6 +83,27 @@ describe("Given a ranking service", () => {
       expect(ranking!.rankingOfUsers).toEqual(
         rankingWith10Users.rankingOfUsers
       );
+    });
+
+    it("Should call create Ranking if there is no ranking on the DB", async () => {
+      const { addPunctuationToRanking } = RankingService;
+      Ranking.findOne = jest.fn().mockReturnValue(null);
+      Ranking.create = jest
+        .fn()
+        .mockReturnValue({ ...rankingWith10Users, save: jest.fn() });
+      const ranking = await addPunctuationToRanking(
+        { id: "1", name: "dani" } as IUser,
+        10000
+      );
+      expect(Ranking.create).toHaveBeenCalled();
+    });
+  });
+
+  describe("When it's called the getRankingFromDB", () => {
+    it("Should call the find method of Rankung", async () => {
+      Ranking.find = jest.fn();
+      await RankingService.getRankingFromDB();
+      expect(Ranking.find).toHaveBeenCalled();
     });
   });
 });
