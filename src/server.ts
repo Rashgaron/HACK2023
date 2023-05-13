@@ -25,6 +25,7 @@ app.get("/", (req: any, res: any) => {
 const io = new Server(server);
 
 io.on("connection", (socket) => {
+  socket.on("Hola", (data: string) => console.log(data));
   socket.emit("connected", { message: "putos franceses" });
   console.log("a user connected");
 });
