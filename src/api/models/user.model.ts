@@ -22,6 +22,10 @@ const userSchema = new Schema({
     type: Number,
     default: 0,
   },
+  products: {
+    type: [],
+    default: [],
+  },
 });
 
 userSchema.index({ name: 1 }, { unique: true });

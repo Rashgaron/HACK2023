@@ -32,6 +32,50 @@
         }
       }
     },
+    "/api/v1/products/": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "description": "Endpoint para obtener todos los productos",
+        "parameters": [],
+        "responses": {}
+      },
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "description": "Endpoint que reinicia la bd de productos a default",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/api/v1/products/buy": {
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "description": "Endpoint para comprar un producto",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "productId": {
+                  "example": "any"
+                },
+                "userId": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {}
+      }
+    },
     "/api/v1/users/": {
       "get": {
         "tags": [

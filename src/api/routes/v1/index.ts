@@ -2,6 +2,7 @@ import express from "express";
 import userRoutes from "./user.routes";
 import gameRoutes from "./game.routes";
 import rankingRoutes from "./ranking.routes";
+import productRoutes from "./product.routes";
 import swaggerUi from "swagger-ui-express";
 import swaggerFile from "../../../swagger_output.json";
 
@@ -18,6 +19,15 @@ router.get("/status", (req: any, res: any) => {
 });
 
 router.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
+
+router.use(
+  "/products",
+ /*
+#swagger.tags = ['Product']
+*/
+productRoutes
+ 
+);
 
 router.use(
   "/users",
