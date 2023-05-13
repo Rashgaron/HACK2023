@@ -1,6 +1,4 @@
-
-import { vars } from "./src/config";
-
+const { vars } = require("./src/config");
 swaggerAutogen = require("swagger-autogen")();
 const outputFile = "./src/swagger_output.json";
 const endpointsFiles = ["./src/config/express.ts"];
