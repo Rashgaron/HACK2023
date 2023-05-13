@@ -9,6 +9,7 @@ const gameService = () => {
     try {
       let user = await Users.findById(id);
       if (user) {
+        console.log()
         user.coins = user.coins + (punctuation ?? 0) + (extraCoins ?? 0);
         if (punctuation) {
           user.totalPunctuation += Number(punctuation);

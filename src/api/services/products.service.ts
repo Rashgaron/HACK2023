@@ -52,26 +52,26 @@ const productsService = () => {
 
 const products = [
   {
-    title: "FF573",
+    title: "FF5732",
     description: "Salmon",
     image_url: "https://picsum.photos/200/300",
     price: 100,
   },
   {
     title: "FFE533",
-    description: "Amarillo",
+    description: "Yellow",
     image_url: "https://picsum.photos/200/300",
     price: 200,
   },
   {
     title: "B5FF33",
-    description: "Verde",
+    description: "Green",
     image_url: "https://picsum.photos/200/300",
     price: 200,
   },
   {
     title: "FD33FF",
-    description: "Violeta",
+    description: "Violet",
     image_url: "https://picsum.photos/200/300",
     price: 200,
   },
