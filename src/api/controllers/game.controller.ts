@@ -10,7 +10,11 @@ const gameController = () => {
       const { punctuation, extraCoins } = req.body;
       const { id } = req.params;
 
-      const user = await addGamePunctuationOnDB(id, punctuation, extraCoins);
+      const user = await addGamePunctuationOnDB(
+        id,
+        Number(punctuation),
+        Number(extraCoins)
+      );
       if (user) await addPunctuationToRanking(user, punctuation);
 
       res.status(200).json({ message: "Punctuation added", user });
