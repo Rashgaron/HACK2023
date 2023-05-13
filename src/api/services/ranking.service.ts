@@ -11,7 +11,6 @@ const rankingService = () => {
     const { id, name } = user;
     let ranking = await Ranking.findOne();
     if (!ranking) ranking = await Ranking.create({});
-    console.log(ranking);
     if (ranking) {
       if (ranking.rankingOfUsers.length < 10) {
         ranking.rankingOfUsers.push({
