@@ -3,6 +3,7 @@ import * as dotenv from "dotenv";
 dotenv.config({ path: `./.env` });
 export default {
   env: process.env.NODE_ENV,
+  host: process.env.HOST,
   port: process.env.PORT,
   mongooseSecretKey: process.env.MONGOOSE_SECRET_KEY ?? "",
   JWT_SECRET: process.env.JWT_SECRET ?? "",

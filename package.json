@@ -9,7 +9,7 @@
     "node": ">=14.20.1"
   },
   "scripts": {
-    "start": "npx ts-node ./src/server.ts",
+    "start": "yarn swagger-autogen && npx ts-node ./src/server.ts",
     "test": "jest",
     "prepare": "husky install",
     "swagger-autogen": "yarn node swagger.js",

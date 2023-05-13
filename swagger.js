@@ -1,4 +1,6 @@
 
+import { vars } from "./src/config";
+
 swaggerAutogen = require("swagger-autogen")();
 const outputFile = "./src/swagger_output.json";
 const endpointsFiles = ["./src/config/express.ts"];
@@ -8,7 +10,7 @@ const doc = {
     description: "Backend API for Vueling app",
   },
   schemes: ["http", "https"],
-  host: "localhost:8080",
+  host: vars.host,
   consumes: ["application/json"],
   produces: ["application/json"],
   basePath: "",
