@@ -5,6 +5,9 @@
   "repository": "https://github.com/ddries/hackupc23-back.git",
   "author": "Rashgaron <d.rodriguez@fruntera.com>",
   "license": "MIT",
+  "engines": {
+    "node": ">=14.20.1"
+  },
   "scripts": {
     "test": "jest",
     "prepare": "husky install",
