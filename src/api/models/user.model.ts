@@ -33,7 +33,7 @@ const userSchema = new Schema({
         title: "FFFFFF",
         description: "White",
         price: 0,
-        id: "646006967e0eb5793b0e2e4a",
+        _id: "646006967e0eb5793b0e2e4a",
       },
     ],
   },
