@@ -6,7 +6,7 @@ import { Server } from "socket.io";
 const server = http.createServer(app);
 
 const mongoUri = vars.mongooseSecretKey;
-const port = vars.port || 8080;
+const port = vars.port || 8081;
 dbConnection(mongoUri);
 
 mongoose.set("toJSON", {

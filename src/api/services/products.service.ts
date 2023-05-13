@@ -75,6 +75,13 @@ const products = [
     image_url: "https://picsum.photos/200/300",
     price: 200,
   },
+{
+    title: "FFFFFF",
+    description: "White",
+    image_url: "https://picsum.photos/200/300",
+    price: 0,
+    _id: "646006967e0eb5793b0e2e4a"
+  },
 ];
 
 export default productsService();
