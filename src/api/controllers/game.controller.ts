@@ -7,10 +7,10 @@ const { addPunctuationToRanking } = rankingService;
 const gameController = () => {
   const addGamePunctuation = async (req: Request, res: Response) => {
     try {
-      const { punctuation } = req.body;
+      const { punctuation, extraCoins } = req.body;
       const { id } = req.params;
 
-      const user = await addGamePunctuationOnDB(id, punctuation);
+      const user = await addGamePunctuationOnDB(id, punctuation, extraCoins);
       if (user) await addPunctuationToRanking(user, punctuation);
 
       res.status(200).json({ message: "Punctuation added", user });

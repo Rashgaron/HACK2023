@@ -1,10 +1,18 @@
 import Users from "../models/user.model";
 
 const gameService = () => {
-  const addGamePunctuationOnDB = async (id: string, punctuation: number) => {
+  const translatePunctuationToCoins = (punctuation: number) => {
+    return Math.floor(punctuation / 10);
+  };
+  const addGamePunctuationOnDB = async (
+    id: string,
+    punctuation: number,
+    extraCoins: number
+  ) => {
     try {
       const user = await Users.findById(id);
       if (user) {
+        user.coins += translatePunctuationToCoins(punctuation) + extraCoins;
         user.totalPunctuation += Number(punctuation);
         if (user.maxPunctuations.length < 10) {
           user.maxPunctuations.push(punctuation);
