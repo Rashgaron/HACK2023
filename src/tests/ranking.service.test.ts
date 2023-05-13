@@ -1,7 +1,7 @@
-import RankingService from "../api/services/ranking.service";
-import Ranking from "../api/models/ranking.model";
-import { IRanking, IUserRanking } from "../api/models/interfaces/IRanking";
-import { IUser } from "../api/models/interfaces/IUser";
+import RankingService from "../../api/services/ranking.service";
+import Ranking from "../../api/models/ranking.model";
+import { IRanking, IUserRanking } from "../../api/models/interfaces/IRanking";
+import { IUser } from "../../api/models/interfaces/IUser";
 
 let rankingWithLessThan10Users = {} as IRanking;
 let rankingWith10Users = {} as IRanking;

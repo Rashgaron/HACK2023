@@ -3,7 +3,7 @@ import userRoutes from "./user.routes";
 import gameRoutes from "./game.routes";
 import rankingRoutes from "./ranking.routes";
 import swaggerUi from "swagger-ui-express";
-import swaggerFile from "../../../swagger_output.json";
+import swaggerFile from "../../../src/swagger_output.json";
 
 const router = express.Router();
 
