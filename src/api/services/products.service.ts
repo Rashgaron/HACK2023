@@ -14,9 +14,9 @@ const productsService = () => {
         coins: coins - price,
         $push: { products: product },
       });
-      return true;
+      return coins - price;
     }
-    return false;
+    return -1;
   };
 
   const getProductsDB = async () => {

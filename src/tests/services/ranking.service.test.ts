@@ -37,6 +37,7 @@ beforeEach(() => {
 describe("Given a ranking service", () => {
   describe("When it's called the addPunctuationToRanking", () => {
     it("Should add a punctuation to the ranking if the ranking has less than 10 users", async () => {
+      console.log(JSON.stringify(rankingWith10Users.rankingOfUsers));
       const { addPunctuationToRanking } = RankingService;
       Ranking.findOne = jest
         .fn()

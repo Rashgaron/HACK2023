@@ -18,8 +18,11 @@ const productsController = () => {
   const buyProduct = async (req: Request, res: Response) => {
     try {
       const { productId, userId } = req.body;
-      const bought = await buyProductDB(productId, userId);
-      if (bought) res.status(httpStatus.OK).json({ message: "Product bought" });
+      const currentCoins = await buyProductDB(productId, userId);
+      if (currentCoins !== -1)
+        res
+          .status(httpStatus.OK)
+          .json({ message: "Product bought", currentCoins });
       else
         res.status(httpStatus.CONFLICT).json({ message: "Not enough coins" });
     } catch (error) {
