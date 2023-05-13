@@ -1,7 +1,9 @@
 import { Request, Response } from "express";
 import userService from "../services/user.service";
+import httpStatus from "http-status";
 
-const { createUserOnDB, getUsersFromDB, getUserByIdFromDB } = userService;
+const { createUserOnDB, getUsersFromDB, getUserByIdFromDB, selectColorOnDB } =
+  userService;
 
 const userController = () => {
   const createUser = async (req: Request, res: Response) => {
@@ -14,6 +16,21 @@ const userController = () => {
       if (error && error.code === 11000) {
         return res.status(400).json({ message: "User already exists" });
       }
+    }
+  };
+
+  const selectColor = async (req: Request, res: Response) => {
+    try {
+      const { colorId } = req.body;
+      const { userId } = req.params;
+      const user = await selectColorOnDB(userId, colorId);
+      if (!user)
+        return res
+          .status(httpStatus.BAD_REQUEST)
+          .json({ message: "User or color not found" });
+      res.status(httpStatus.OK).json({ user });
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -40,6 +57,7 @@ const userController = () => {
     createUser,
     getUsers,
     getUserById,
+    selectColor,
   };
 };
 

@@ -5,6 +5,7 @@ export interface IUser {
   name: string;
   totalPunctuation: number;
   coins: number;
+  color: string;
   maxPunctuations: number[];
   products: IArticle[];
 }

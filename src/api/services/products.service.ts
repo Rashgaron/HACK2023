@@ -52,13 +52,13 @@ const productsService = () => {
 
 const products = [
   {
-    title: "Product 1",
+    title: "#668822",
     description: "Description 1",
     image_url: "https://picsum.photos/200/300",
     price: 100,
   },
   {
-    title: "Product 2",
+    title: "#112255",
     description: "Description 2",
     image_url: "https://picsum.photos/200/300",
     price: 200,
