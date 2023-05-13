@@ -1,6 +1,9 @@
 import mongoose from "mongoose";
 import "reflect-metadata";
 import { dbConnection, app, vars } from "./config";
+import http from "http";
+import { Server } from "socket.io";
+const server = http.createServer(app);
 
 const mongoUri = vars.mongooseSecretKey;
 const port = vars.port || 8080;
@@ -19,8 +22,18 @@ app.get("/", (req: any, res: any) => {
   res.send("Hello world!");
 });
 
-app.listen(port, () => {
-  console.log("Server is running on port", port);
+const io = new Server(server);
+
+io.on("connection", (socket) => {
+  console.log("a user connected");
+});
+
+server.listen(port, () => {
+  try {
+    console.log("listening on *:", port);
+  } catch (e) {
+    console.log(e);
+  }
 });
 
 export default app;

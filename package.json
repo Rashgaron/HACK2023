@@ -57,6 +57,7 @@
     "nodemon": "^2.0.20",
     "npm": "^9.5.1",
     "reflect-metadata": "^0.1.13",
+    "socket.io": "^4.6.1",
     "sudo": "^1.0.3",
     "supertest": "^6.3.3",
     "swagger-autogen": "^2.23.1",
