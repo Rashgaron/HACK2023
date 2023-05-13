@@ -1,4 +1,5 @@
-const { vars } = require("./src/config");
+require("dotenv").config();
+
 swaggerAutogen = require("swagger-autogen")();
 const outputFile = "./src/swagger_output.json";
 const endpointsFiles = ["./src/config/express.ts"];
@@ -8,7 +9,7 @@ const doc = {
     description: "Backend API for Vueling app",
   },
   schemes: ["http", "https"],
-  host: vars.host,
+  host: process.env.HOST_URL,
   consumes: ["application/json"],
   produces: ["application/json"],
   basePath: "",
