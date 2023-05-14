@@ -12,7 +12,7 @@ const userSchema = new Schema({
   },
   coins: {
     type: Number,
-    default: 0,
+    default: 300,
   },
   maxPunctuations: {
     type: [Number],
